@@ -59,12 +59,12 @@ a:hover{color: #7F1D1D;}
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
-  padding: 1.25rem 0;
 }
-.navbar .container {
+.navbar .nav-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 0;
 }
 .nav-brand {
   font-family: var(--serif);
@@ -89,11 +89,11 @@ a:hover{color: #7F1D1D;}
 
 /* ---------- TOP TIP BAR V2 ---------- */
 .top-tip-bar {
-  margin-top: 85px; /* Safely clears the fixed navbar */
-  height: 45px;
-  background-color: var(--off-white);
-  border-bottom: 1px solid var(--border);
+  margin-top: 0;
+  height: 40px;
+  background-color: transparent;
   border-top: 1px solid var(--border);
+  border-bottom: none;
   overflow: hidden;
   position: relative;
   z-index: 10;
@@ -116,7 +116,7 @@ a:hover{color: #7F1D1D;}
   top: 0;
   left: 0;
   right: 0;
-  line-height: 45px; /* Perfect vertical centering without transform */
+  line-height: 40px;
   text-align: center;
   margin: 0;
   opacity: 0;
@@ -173,7 +173,7 @@ section {
 
 /* ---------- HERO ---------- */
 .hero {
-  padding-top: 15vh;
+  padding-top: 18vh;
   padding-bottom: 0;
 }
 .hero-content {
