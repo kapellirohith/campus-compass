@@ -304,6 +304,7 @@ section {
   margin-top: 2rem;
   border-left: 2px solid var(--border);
   padding-left: 1.8rem; /* Reduced to move text to the left */
+  padding-top: 14px; /* Border starts exactly at center of first dot */
 }
 .timeline-item {
   margin-bottom: 3rem;
@@ -313,7 +314,7 @@ section {
   content: '';
   position: absolute;
   left: calc(-1.8rem - 7px); /* Updated to match new padding-left */
-  top: 0;
+  top: 8px; /* Centers dot vertically on the 1.8rem h4 text cap height */
   width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--white);
@@ -323,7 +324,7 @@ section {
   font-family: var(--serif);
   font-size: 1.8rem;
   line-height: 1.2; /* Restored natural line-height to fix squished letters */
-  margin-top: -0.55rem; /* Pulled text further up to align with dot */
+  margin-top: 0; /* Zero margin, let text sit naturally */
   margin-bottom: 0.25rem;
   color: var(--navy);
 }
