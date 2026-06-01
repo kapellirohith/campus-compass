@@ -238,7 +238,7 @@ section {
 .hero-content {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 10vh;
+  margin: 0 auto 5vh; /* Reduced from 10vh to pull hero image up */
 }
 .hero-title {
   font-family: var(--serif);
@@ -303,6 +303,11 @@ section {
   margin-top: 2rem;
   border-left: 2px solid var(--border);
   padding-left: 2.5rem;
+  /* Push border start down so it begins exactly at first dot center.
+     h4 font-size: 1.8rem, line-height ~1.2, so text center ≈ 1.08rem.
+     Dot is 12px tall, centered on text: top offset = calc(1.08rem - 6px).
+     Use this as padding-top so border starts at the dot. */
+  padding-top: calc(1.08rem - 6px);
 }
 .timeline-item {
   margin-bottom: 3rem;
@@ -311,11 +316,14 @@ section {
 .timeline-item::before {
   content: '';
   position: absolute;
-  /* MATH: padding-left is 2.5rem, border is 2px wide, dot is 12px wide.
-     Border center = -(2.5rem + 1px) from content edge.
-     Dot center on border = -(2.5rem + 1px + 6px) = calc(-2.5rem - 7px) */
+  /* MATH: padding-left = 2.5rem, border-width = 2px, dot-width = 12px.
+     Border center from content edge = -(2.5rem + 1px).
+     Dot left edge to center dot on border = -(2.5rem + 1px + 6px) */
   left: calc(-2.5rem - 7px);
-  top: 0.4rem;
+  /* MATH: h4 font-size = 1.8rem, line-height ≈ 1.2 → line box ≈ 2.16rem.
+     Text visual center ≈ 1.08rem. Dot height = 12px, center = 6px.
+     top = 1.08rem - 6px to vertically center dot on the first line of text. */
+  top: calc(1.08rem - 6px);
   width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--white);
