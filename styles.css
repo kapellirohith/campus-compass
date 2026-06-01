@@ -134,8 +134,65 @@ a:hover{color: #7F1D1D;}
 .dark-theme .theme-toggle .icon-sun { display: block; }
 .dark-theme .theme-toggle .icon-moon { display: none; }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: 2px solid transparent;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+.mobile-menu-toggle:hover {
+  color: var(--accent);
+}
+.mobile-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+.dark-theme .mobile-menu-toggle {
+  color: var(--white);
+}
+
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .mobile-menu-toggle {
+    display: flex; /* Show on mobile */
+  }
+  .nav-links {
+    display: none; /* Hidden by default on mobile */
+    position: absolute;
+    top: 70px; /* Sits right below the 70px navbar */
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    gap: 1.5rem;
+  }
+  .dark-theme .nav-links {
+    background: rgba(26, 26, 26, 0.98);
+  }
+  .nav-links.active {
+    display: flex; /* Shown when toggled */
+  }
+  .nav-links a {
+    text-align: center;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
 }
 
 /* ---------- TOP TIP BAR V2 ---------- */

@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile Menu Toggle
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+
   // 2. Intersection Observer for Fade-Up Animations (replays on every scroll)
   const observerOptions = {
     root: null,
