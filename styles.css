@@ -120,6 +120,9 @@ section {
 .section-alt {
   background-color: var(--off-white);
 }
+.section-white {
+  background-color: var(--white);
+}
 
 /* ---------- HERO ---------- */
 .hero {
@@ -272,7 +275,7 @@ section {
   .b-code { padding-bottom: 0 !important; }
 }
 
-/* ---------- CH 4: CLUBS (Gallery) ---------- */
+/* ---------- CH 4 (Now 5): CLUBS ---------- */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -296,7 +299,7 @@ section {
   color: #A0ABC0;
 }
 
-/* ---------- CH 5: SURVIVAL ---------- */
+/* ---------- CH 5 (Now 6): SURVIVAL ---------- */
 .survival-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -334,7 +337,7 @@ section {
   .survival-list { grid-template-columns: 1fr; }
 }
 
-/* ---------- CH 6 & FOOTER ---------- */
+/* ---------- CH 6 (Now 7) & FOOTER ---------- */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -383,7 +386,6 @@ section {
    RECOVERY PLAN UTILITIES
    ======================================== */
 
-/* Print Box (Screenshot Element) */
 .print-box {
   border: 2px dashed var(--text-muted);
   padding: 3rem;
@@ -405,7 +407,6 @@ section {
   letter-spacing: 0.1em;
 }
 
-/* Editorial Glossary */
 .glossary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -433,7 +434,6 @@ section {
 }
 .term-warn { color: #EF4444 !important; }
 
-/* Elegant Numbered List (CGPA Strategy) */
 .cgpa-strategy {
   counter-reset: cgpa-counter;
   list-style: none;
@@ -466,7 +466,6 @@ section {
   font-size: 0.95rem;
 }
 
-/* Massive Warning Box */
 .massive-warning {
   background: #FFF1F2;
   border-left: 4px solid #EF4444;
@@ -485,7 +484,6 @@ section {
   font-size: 1.05rem;
 }
 
-/* Q&A List (Hostel Realities) */
 .qa-list {
   margin-top: 3rem;
 }
@@ -502,9 +500,78 @@ section {
   color: var(--text-muted);
 }
 
+/* ========================================
+   HARD TRUTHS EDITORIAL (CH 4)
+   ======================================== */
+
+.story-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.story-block {
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+}
+.story-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+.story-hook {
+  font-family: var(--serif);
+  font-size: 2.25rem;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+.story-body {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.story-body p {
+  margin-bottom: 1rem;
+}
+.story-lesson-label {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.story-takeaway {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+.story-ending {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--navy);
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 4rem;
+}
+.story-ending p {
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .print-box { padding: 1.5rem; }
   .glossary-term { grid-template-columns: 1fr; gap: 0.5rem; }
   .cgpa-strategy li { padding-left: 3rem; }
   .cgpa-strategy li::before { font-size: 2rem; }
+  
+  .story-hook { font-size: 1.8rem; }
+  .story-body { font-size: 1.05rem; }
 }
