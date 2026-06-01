@@ -1,59 +1,80 @@
-/* ========================================
-   CAMPUS COMPASS — V3 Institutional Interactions
-   "Clean, Predictable, Trustworthy."
-   ======================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
+  // 1. Intersection Observer for Fade-Up Animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
 
-  // 1. Intersection Observer for Subtle Fade-Ups
-  const fadeElements = document.querySelectorAll('.fade-up');
-  
-  if ('IntersectionObserver' in window) {
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          // Optional: Unobserve after fade-in for static behavior, 
-          // or keep observing to replay animation if desired. We will unobserve for a clean feel.
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    }, { 
-      threshold: 0.1, 
-      rootMargin: '0px 0px -50px 0px' 
-    });
-
-    fadeElements.forEach(el => fadeObserver.observe(el));
-  } else {
-    // Fallback for older browsers
-    fadeElements.forEach(el => el.classList.add('in-view'));
-  }
-
-  // 2. Smooth Anchor Scrolling for Navigation
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        // Offset for the fixed navbar (approx 80px)
-        const offset = 80;
-        const bodyRect = document.body.getBoundingClientRect().top;
-        const elementRect = target.getBoundingClientRect().top;
-        const elementPosition = elementRect - bodyRect;
-        const offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
       }
     });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-up').forEach(el => {
+    observer.observe(el);
   });
 
-  // Note: All parallax and scroll-hijacking from V2 has been removed 
-  // to prioritize usability, scannability, and institutional trust.
+  // 2. Ticker Logic
+  const tickers = document.querySelectorAll('.ticker-item');
+  if (tickers.length > 0) {
+    let currentTicker = 0;
+    tickers[currentTicker].classList.add('active');
+    
+    setInterval(() => {
+      tickers[currentTicker].classList.remove('active');
+      currentTicker = (currentTicker + 1) % tickers.length;
+      tickers[currentTicker].classList.add('active');
+    }, 4000); // Rotate every 4 seconds
+  }
 
+  // 3. Quiz Logic
+  const quizForm = document.getElementById('club-quiz-form');
+  if (quizForm) {
+    quizForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+      const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+      const q3 = document.querySelector('input[name="q3"]:checked')?.value;
+      
+      if (!q1 || !q2 || !q3) {
+        alert("Please answer all 3 questions to get your result.");
+        return;
+      }
+      
+      const answers = [q1, q2, q3];
+      const counts = { A:0, B:0, C:0, D:0, E:0 };
+      
+      answers.forEach(ans => counts[ans]++);
+      
+      let highestCount = 0;
+      let winningLetter = 'A';
+      
+      for (const [letter, count] of Object.entries(counts)) {
+        if (count > highestCount) {
+          highestCount = count;
+          winningLetter = letter;
+        }
+      }
+      
+      const resultsMap = {
+        'A': 'Chakravyuha Technical Club',
+        'B': 'Team bi0s',
+        'C': 'IEEE',
+        'D': 'AYUDH',
+        'E': 'E-Cell'
+      };
+      
+      const resultContainer = document.getElementById('quiz-result-container');
+      const resultText = document.getElementById('quiz-result-text');
+      
+      resultText.innerText = "You belong in: " + resultsMap[winningLetter];
+      resultContainer.style.display = 'block';
+    });
+  }
 });

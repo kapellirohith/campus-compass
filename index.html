@@ -10,19 +10,30 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main Navigation">
     <div class="container">
       <div class="nav-brand">Campus Compass</div>
       <div class="nav-links">
-        <a href="#packing">Preparation</a>
-        <a href="#first-week">First 30 Days</a>
-        <a href="#academics">Academics</a>
-        <a href="#hard-truths">The Hard Truths</a>
-        <a href="#clubs">Culture</a>
-        <a href="#survival">Survival Guide</a>
+        <a href="#packing" aria-label="Preparation">Preparation</a>
+        <a href="#first-week" aria-label="First 30 Days">First 30 Days</a>
+        <a href="#academics" aria-label="Academics">Academics</a>
+        <a href="#hard-truths" aria-label="The Hard Truths">The Hard Truths</a>
+        <a href="#clubs" aria-label="Culture">Culture</a>
+        <a href="#survival" aria-label="Survival Guide">Survival Guide</a>
       </div>
     </div>
   </nav>
+
+  <!-- QUICK TIPS TICKER (Bonus Feature) -->
+  <div class="ticker-wrap" style="margin-top: 60px;" aria-hidden="true">
+    <span class="ticker-item">"Always carry your ID card."</span>
+    <span class="ticker-item">"Apply for GPMS before Friday."</span>
+    <span class="ticker-item">"Attendance below 75% = FA."</span>
+    <span class="ticker-item">"Join clubs in your first month."</span>
+    <span class="ticker-item">"Keep digital copies of all documents."</span>
+    <span class="ticker-item">"Back up your laptop."</span>
+    <span class="ticker-item">"Library is your best study location."</span>
+  </div>
 
   <!-- CHAPTER 0: HERO -->
   <section class="hero" id="home">
@@ -32,7 +43,7 @@
         <p class="body-text" style="margin: 0 auto; font-size: 1.25rem;">Everything you need to know before your first day, written by the seniors who walked the path before you. Comprehensive. Brutally honest.</p>
       </div>
       <div class="hero-img-wrap fade-up">
-        <img src="images/hero.jpg" alt="Amrita Vishwa Vidyapeetham Amaravati" loading="eager">
+        <img src="images/hero.jpg" alt="Aerial view of Amrita Vishwa Vidyapeetham Amaravati campus" loading="eager">
       </div>
     </div>
   </section>
@@ -99,13 +110,12 @@
       
       <div class="week-grid fade-up" style="margin-top: 3rem;">
         <div class="week-img">
-          <img src="images/hostel.jpg" alt="Students at Amrita Amaravati" loading="lazy">
+          <img src="images/hostel.jpg" alt="Students sitting together near the Amrita hostel" loading="lazy">
         </div>
         <div>
           <p class="body-text" style="margin-bottom: 2rem;">The first week will feel strange. You will walk in circles. Give it exactly 30 days to find your rhythm. Here is your roadmap.</p>
           
           <div class="timeline">
-            <!-- Week 1 -->
             <div class="timeline-item">
               <h4>Week 1 — Survive</h4>
               <span class="week-mood">Mood: Everything feels unfamiliar.</span>
@@ -118,7 +128,6 @@
               </ul>
             </div>
             
-            <!-- Week 2 -->
             <div class="timeline-item">
               <h4>Week 2 — Settle</h4>
               <span class="week-mood">Mood: Things stop feeling scary.</span>
@@ -131,7 +140,6 @@
               </ul>
             </div>
             
-            <!-- Week 3 -->
             <div class="timeline-item">
               <h4>Week 3 — Explore</h4>
               <span class="week-mood">Mood: The campus starts feeling smaller.</span>
@@ -143,7 +151,6 @@
               </ul>
             </div>
             
-            <!-- Week 4 -->
             <div class="timeline-item">
               <h4>Week 4 — Build</h4>
               <span class="week-mood">Mood: You are no longer a visitor. You belong here.</span>
@@ -153,12 +160,10 @@
                 <li>Pick one club</li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
 
-      <!-- Insider Secrets -->
       <div class="qa-list fade-up">
         <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);">Insider Realities</h3>
         <div class="qa-item">
@@ -174,7 +179,6 @@
           <p>Mangalagiri is a developing area. For major shopping or movies, you will need to head to Vijayawada or Guntur. Plan these trips for weekends, and always ensure your GPMS out-pass is approved a day in advance.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -184,13 +188,11 @@
       <span class="ch-label fade-up">Chapter 03</span>
       <h2 class="ch-title fade-up">Inside The Classroom.</h2>
       
-      <!-- FA Warning -->
       <div class="massive-warning fade-up">
         <h4>Every semester, someone discovers the FA grade the hard way.</h4>
         <p>If your attendance drops below 75%, you receive an <strong>FA (Failure by Attendance)</strong>. This means you do not even get to sit for the end-semester exam. It is not "low marks." You literally cannot enter the hall. Attendance is marked every single hour. Check AUMS every Friday. Do not volunteer for this lesson.</p>
       </div>
 
-      <!-- Course Catalog -->
       <table class="catalog-table fade-up">
         <thead>
           <tr>
@@ -233,7 +235,6 @@
         </tbody>
       </table>
 
-      <!-- CGPA Strategy -->
       <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-top: 5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;" class="fade-up">The CGPA Survival Strategy</h3>
       <ul class="cgpa-strategy fade-up">
         <li>
@@ -258,7 +259,6 @@
         </li>
       </ul>
 
-      <!-- Amrita Dictionary -->
       <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-top: 5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;" class="fade-up">The Amrita Dictionary</h3>
       <p class="body-text fade-up" style="margin-top: 1rem;">You will hear these acronyms on Day 1 and panic. Here is exactly what they mean.</p>
       
@@ -316,7 +316,6 @@
       </div>
 
       <div class="story-container fade-up">
-        <!-- Story 01 -->
         <div class="story-block">
           <h3 class="story-hook">"I thought first year CGPA didn't matter."</h3>
           <div class="story-body">
@@ -330,7 +329,6 @@
           <p class="story-takeaway">A strong start is easier than a comeback.</p>
         </div>
 
-        <!-- Story 02 -->
         <div class="story-block">
           <h3 class="story-hook">"I'll join clubs after I settle in."</h3>
           <div class="story-body">
@@ -344,7 +342,6 @@
           <p class="story-takeaway">You do not need confidence before joining. You join first. Confidence comes later.</p>
         </div>
 
-        <!-- Story 03 -->
         <div class="story-block">
           <h3 class="story-hook">"I'll watch the lecture recording later."</h3>
           <div class="story-body">
@@ -357,7 +354,6 @@
           <p class="story-takeaway">Future me was never more disciplined than present me.</p>
         </div>
 
-        <!-- Story 04 -->
         <div class="story-block">
           <h3 class="story-hook">"Everybody else seems smarter than me."</h3>
           <div class="story-body">
@@ -370,7 +366,6 @@
           <p class="story-takeaway">Never compare your first chapter to someone else's chapter twenty.</p>
         </div>
 
-        <!-- Story 05 -->
         <div class="story-block">
           <h3 class="story-hook">"My first friend group will be my forever friend group."</h3>
           <div class="story-body">
@@ -382,7 +377,6 @@
           <p class="story-takeaway">Let friendships grow naturally. Don't force permanence.</p>
         </div>
 
-        <!-- Story 06 -->
         <div class="story-block">
           <h3 class="story-hook">"I'll start coding after I understand everything."</h3>
           <div class="story-body">
@@ -395,7 +389,6 @@
           <p class="story-takeaway">Start badly. Improve publicly.</p>
         </div>
 
-        <!-- Ending Block -->
         <div class="story-ending">
           <p>If you forget everything else in this handbook, remember this:</p>
           <p>Nobody arrives at Amrita fully prepared. Nobody has everything figured out.</p>
@@ -422,14 +415,12 @@
       <span class="ch-label fade-up">Chapter 05</span>
       <h2 class="ch-title fade-up">Beyond The Classroom.</h2>
       
-      <!-- Editorial Intro -->
       <div class="fade-up" style="max-width: 700px; margin-bottom: 3rem;">
         <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-bottom: 1rem;">How Students Actually Get Into Clubs</h3>
         <p class="body-text" style="margin-bottom: 1rem;">Nobody joins because they are already skilled. Most students join because they are curious.</p>
         <p class="body-text" style="margin-bottom: 1rem;">Watch for induction announcements during your first month. Fill the forms. Show up. Talk to people. Attempt the tasks even if you feel underqualified. The students leading these communities were once freshers who thought they weren't ready.</p>
       </div>
 
-      <!-- Reality Check -->
       <div class="massive-warning fade-up" style="margin-bottom: 4rem;">
         <h4>The Biggest Club Mistake</h4>
         <p>Every year, students tell themselves: "I'll join after I settle in." Then a month becomes a semester. The students who joined during week one become organizers. The students who waited remain spectators. Join early. You can always leave later. The opposite is much harder.</p>
@@ -442,45 +433,85 @@
         <p style="margin-top: 1rem;">If you want hackathons, projects, AI, technical events, workshops, and people who constantly build things outside class, start here. This is one of the fastest ways to stop feeling like a fresher and start becoming part of the technical community.</p>
       </div>
 
-      <!-- 7-Club Grid -->
-      <div class="gallery-grid fade-up">
-        <!-- 1 -->
+      <!-- Club Finder Quiz (Bonus Feature) -->
+      <div class="quiz-container fade-up">
+        <h3>The Club Finder</h3>
+        <p class="body-text" style="margin-bottom: 2rem;">Not sure where to start? Answer these three questions to find your community.</p>
+        
+        <form id="club-quiz-form">
+          <div class="quiz-question">
+            <h4>Q1: What sounds most interesting?</h4>
+            <div class="quiz-options">
+              <label><input type="radio" name="q1" value="A" required> Building projects</label>
+              <label><input type="radio" name="q1" value="B"> Cybersecurity</label>
+              <label><input type="radio" name="q1" value="C"> Research</label>
+              <label><input type="radio" name="q1" value="D"> Social impact</label>
+              <label><input type="radio" name="q1" value="E"> Startups</label>
+            </div>
+          </div>
+          
+          <div class="quiz-question">
+            <h4>Q2: How do you spend free time?</h4>
+            <div class="quiz-options">
+              <label><input type="radio" name="q2" value="A" required> Coding</label>
+              <label><input type="radio" name="q2" value="B"> Breaking things to understand them</label>
+              <label><input type="radio" name="q2" value="C"> Reading</label>
+              <label><input type="radio" name="q2" value="D"> Organizing events</label>
+              <label><input type="radio" name="q2" value="E"> Business content</label>
+            </div>
+          </div>
+          
+          <div class="quiz-question">
+            <h4>Q3: What do you want from college?</h4>
+            <div class="quiz-options">
+              <label><input type="radio" name="q3" value="A" required> Hackathons</label>
+              <label><input type="radio" name="q3" value="B"> CTFs</label>
+              <label><input type="radio" name="q3" value="C"> Research exposure</label>
+              <label><input type="radio" name="q3" value="D"> Leadership</label>
+              <label><input type="radio" name="q3" value="E"> Entrepreneurship</label>
+            </div>
+          </div>
+          
+          <button type="submit" class="quiz-submit">Find My Club</button>
+        </form>
+        
+        <div id="quiz-result-container" class="quiz-result">
+          <h4 id="quiz-result-text"></h4>
+          <p>Watch out for their inductions during your first month!</p>
+        </div>
+      </div>
+
+      <div class="gallery-grid fade-up" style="margin-top: 5rem;">
         <div class="gallery-item">
-          <img src="images/replacement 2.jpg" alt="Chakravyuha" loading="lazy">
+          <img src="images/replacement 2.jpg" alt="Chakravyuha Technical Club" loading="lazy">
           <h4>Chakravyuha Technical Club</h4>
           <p>The club behind this entire challenge. Where you stop feeling like a fresher and start building.</p>
         </div>
-        <!-- 2 -->
         <div class="gallery-item">
-          <img src="images/classroom.jpg" alt="ACM" loading="lazy">
+          <img src="images/classroom.jpg" alt="ACM Student Chapter" loading="lazy">
           <h4>ACM Student Chapter</h4>
           <p>Where you stop being a classroom programmer. Workshops, coding culture, problem solving, and technical discussions.</p>
         </div>
-        <!-- 3 -->
         <div class="gallery-item">
           <img src="images/podium image 2.jpg" alt="IEEE" loading="lazy">
           <h4>IEEE</h4>
           <p>The global engineering network. Connects students to technical events, competitions, and research exposure beyond campus.</p>
         </div>
-        <!-- 4 -->
         <div class="gallery-item">
-          <img src="images/students.jpg" alt="FOSS" loading="lazy">
+          <img src="images/students.jpg" alt="FOSS Community" loading="lazy">
           <h4>FOSS / Open Source Community</h4>
           <p>Open source changes how you learn. Read real code written by developers around the world, find mentorships, and build serious skills.</p>
         </div>
-        <!-- 5 -->
         <div class="gallery-item">
           <img src="images/quantum valley winners.jpg" alt="Team bi0s" loading="lazy">
           <h4>Team bi0s</h4>
           <p>For people obsessed with cybersecurity. Ethical hacking, reverse engineering, and CTFs. One of the most respected technical communities.</p>
         </div>
-        <!-- 6 -->
         <div class="gallery-item">
           <img src="images/culture.jpg" alt="AYUDH" loading="lazy">
           <h4>AYUDH</h4>
           <p>Growth outside academics. Focuses on volunteering, leadership, social impact and community initiatives for balance.</p>
         </div>
-        <!-- 7 -->
         <div class="gallery-item">
           <img src="images/student at podium.jpg" alt="E-Cell" loading="lazy">
           <h4>E-Cell</h4>
@@ -490,12 +521,30 @@
     </div>
   </section>
 
+  <!-- SENIOR CONFESSION 3 -->
+  <section class="section-dark" style="padding: 6vh 0;">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <p style="font-family: var(--serif); font-size: 1.8rem; font-style: italic; line-height: 1.4; color: #E2E8F0;">
+        "The people you meet in the library at 10 PM and the people you build projects with in technical clubs will eventually become your co-founders or refer you to your first job."
+      </p>
+      <span style="font-family: var(--mono); font-size: 0.85rem; color: var(--accent); margin-top: 1rem; display: block; text-transform: uppercase;">— Senior Confession</span>
+    </div>
+  </section>
+
   <!-- CHAPTER 6: SURVIVAL -->
   <section class="section-alt" id="survival">
     <div class="container">
       <span class="ch-label fade-up">Chapter 06</span>
       <h2 class="ch-title fade-up">The Unwritten Rules.</h2>
       <p class="body-text fade-up">Nobody will sit you down and tell you these things. Read them carefully before Day 1.</p>
+
+      <!-- Amaravati Specificity (Bonus Feature) -->
+      <div class="fade-up" style="margin-top: 4rem; max-width: 800px;">
+        <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-bottom: 1rem;">Only At Amaravati</h3>
+        <p class="body-text" style="margin-bottom: 1rem;"><strong>GPMS Realities:</strong> The servers slow down on Friday afternoon because everyone is applying for weekend passes. Apply on Thursday if you want to leave campus smoothly.</p>
+        <p class="body-text" style="margin-bottom: 1rem;"><strong>Weekend Travel:</strong> Mangalagiri is quiet. If you want to watch a movie or go to a major mall, you will need to plan a trip to Vijayawada or Guntur. Form groups early to split auto fares.</p>
+        <p class="body-text" style="margin-bottom: 1rem;"><strong>The Library:</strong> It is the only place on campus where you can truly escape the hostel chaos. Use it heavily during exam season. It fills up fast.</p>
+      </div>
 
       <div class="print-box fade-up">
         <div class="survival-list">
@@ -520,6 +569,23 @@
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SCREENSHOT SHEET (Bonus Feature updated to 5 things & PDF) -->
+  <section class="section-white">
+    <div class="container fade-up">
+      <div class="print-box">
+        <h3 style="font-family: var(--serif); font-size: 2.2rem; color: var(--navy); margin-bottom: 2rem;">If You Remember Only Five Things</h3>
+        <ul class="screenshot-list">
+          <li><strong>1. Attendance below 75% is dangerous.</strong> (FA grade is real).</li>
+          <li><strong>2. Join clubs early.</strong> (Month 1 is induction month).</li>
+          <li><strong>3. Build projects from semester 1.</strong> (CGPA alone isn't enough).</li>
+          <li><strong>4. Protect your CGPA early.</strong> (Semester 1 is the easiest time to score high).</li>
+          <li><strong>5. Make friends outside your branch.</strong> (Your network is your net worth).</li>
+        </ul>
+        <a href="survival-sheet.pdf" target="_blank" class="pdf-download-btn" aria-label="Download Freshers Survival Sheet PDF">Download Freshers Survival Sheet</a>
       </div>
     </div>
   </section>
@@ -577,7 +643,7 @@
     </div>
   </section>
 
-  <!-- CHAPTER 8: FAQ -->
+  <!-- CHAPTER 8: FAQ (Bonus Feature Verified) -->
   <section class="section-alt" id="faq">
     <div class="container">
       <span class="ch-label fade-up">Chapter 08</span>
@@ -620,24 +686,6 @@
     </div>
   </section>
 
-  <!-- THE SCREENSHOT SHEET -->
-  <section class="section-white">
-    <div class="container fade-up">
-      <div class="print-box">
-        <h3 style="font-family: var(--serif); font-size: 2.2rem; color: var(--navy); margin-bottom: 2rem;">Screenshot This Before Orientation</h3>
-        <ul class="screenshot-list">
-          <li><strong>AUMS</strong> Academic portal for grades & attendance</li>
-          <li><strong>GPMS</strong> Pass required to leave campus</li>
-          <li><strong>The FA Rule</strong> Below 75% attendance = Cannot write exam</li>
-          <li><strong>Emergency Contact</strong> Save the warden's number on Day 1</li>
-          <li><strong>The Library</strong> Open late. Best place to focus.</li>
-          <li><strong>Clubs</strong> Inductions start Month 1. Join one technical, one cultural.</li>
-          <li><strong>Important Docs</strong> Bring 10th/12th originals & 15 passport photos</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- CHAPTER 9: ONE LAST THING & FOOTER -->
   <section id="closing" style="padding-bottom: 5vh;">
     <div class="container">
@@ -666,7 +714,7 @@
       </div>
 
       <div class="footer-bottom fade-up">
-        <div>Campus Compass (V4 Definitive Edition)</div>
+        <div>Campus Compass (Bonus Features Unleashed)</div>
         <div>Amrita Vishwa Vidyapeetham, Amaravati</div>
       </div>
     </div>
