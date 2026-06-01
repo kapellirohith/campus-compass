@@ -303,7 +303,7 @@ section {
 .timeline {
   margin-top: 2rem;
   border-left: 2px solid var(--border);
-  padding-left: 2.5rem;
+  padding-left: 1.8rem; /* Reduced to move text to the left */
 }
 .timeline-item {
   margin-bottom: 3rem;
@@ -312,7 +312,7 @@ section {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: calc(-2.5rem - 7px);
+  left: calc(-1.8rem - 7px); /* Updated to match new padding-left */
   top: 0;
   width: 12px; height: 12px;
   border-radius: 50%;
@@ -322,8 +322,8 @@ section {
 .timeline-item h4 {
   font-family: var(--serif);
   font-size: 1.8rem;
-  line-height: 1; /* Reduce bounding box */
-  margin-top: -0.35rem; /* Pull text up exactly to align with the 12px dot at top: 0 */
+  line-height: 1.2; /* Restored natural line-height to fix squished letters */
+  margin-top: -0.55rem; /* Pulled text further up to align with dot */
   margin-bottom: 0.25rem;
   color: var(--navy);
 }
