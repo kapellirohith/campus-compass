@@ -173,7 +173,7 @@ section {
 
 /* ---------- HERO ---------- */
 .hero {
-  padding-top: 18vh;
+  padding-top: max(150px, 18vh);
   padding-bottom: 0;
 }
 .hero-content {
