@@ -19,20 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // 2. Ticker Logic
+  // 2. Stabilized Ticker Logic
   const tickers = document.querySelectorAll('.ticker-item');
   if (tickers.length > 0) {
     let currentTicker = 0;
-    tickers[currentTicker].classList.add('active');
+    // Initial fade in
+    setTimeout(() => {
+      tickers[currentTicker].classList.add('active');
+    }, 100);
     
     setInterval(() => {
       tickers[currentTicker].classList.remove('active');
       currentTicker = (currentTicker + 1) % tickers.length;
       tickers[currentTicker].classList.add('active');
-    }, 4000); // Rotate every 4 seconds
+    }, 4500);
   }
 
-  // 3. Quiz Logic
+  // 3. Premium Quiz Logic with Editorial Results
   const quizForm = document.getElementById('club-quiz-form');
   if (quizForm) {
     quizForm.addEventListener('submit', (e) => {
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const q3 = document.querySelector('input[name="q3"]:checked')?.value;
       
       if (!q1 || !q2 || !q3) {
-        alert("Please answer all 3 questions to get your result.");
+        alert("Please answer all 3 questions to get your personalized recommendation.");
         return;
       }
       
@@ -63,18 +66,53 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
       const resultsMap = {
-        'A': 'Chakravyuha Technical Club',
-        'B': 'Team bi0s',
-        'C': 'IEEE',
-        'D': 'AYUDH',
-        'E': 'E-Cell'
+        'A': {
+          name: 'Chakravyuha Technical Club',
+          why: 'You enjoy building projects and learning through execution rather than theory.',
+          action: 'Find their booth during club induction week and sign up.',
+          advice: 'Do not wait until second year to start building. The students who grow fastest join early.'
+        },
+        'B': {
+          name: 'Team bi0s',
+          why: 'You have a natural curiosity for breaking systems to understand how they work securely.',
+          action: 'Join their beginner CTF training sessions.',
+          advice: 'Cybersecurity has a steep learning curve. The community will pull you through the hardest parts.'
+        },
+        'C': {
+          name: 'IEEE',
+          why: 'You value deep technical research and want to connect with the global engineering ecosystem.',
+          action: 'Attend their first technical paper presentation seminar.',
+          advice: 'Use IEEE to find mentors who are publishing research, not just doing assignments.'
+        },
+        'D': {
+          name: 'AYUDH',
+          why: 'You realize that not everything important happens in a classroom, and you value social impact.',
+          action: 'Volunteer for their first weekend campus initiative.',
+          advice: 'Balance is everything in engineering. This community will keep you grounded.'
+        },
+        'E': {
+          name: 'E-Cell',
+          why: 'You look at problems and think about scalable solutions and execution.',
+          action: 'Go to their first startup pitching session, even just to listen.',
+          advice: 'Ideas are cheap. Surround yourself with people who actually execute them.'
+        }
       };
       
+      const result = resultsMap[winningLetter];
       const resultContainer = document.getElementById('quiz-result-container');
-      const resultText = document.getElementById('quiz-result-text');
       
-      resultText.innerText = "You belong in: " + resultsMap[winningLetter];
+      // Inject Editorial Content
+      document.getElementById('res-name').innerText = result.name;
+      document.getElementById('res-why').innerText = result.why;
+      document.getElementById('res-action').innerText = result.action;
+      document.getElementById('res-advice').innerText = result.advice;
+      
       resultContainer.style.display = 'block';
+      
+      // Smooth scroll to result
+      setTimeout(() => {
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
     });
   }
 });

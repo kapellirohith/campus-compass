@@ -24,7 +24,7 @@
     </div>
   </nav>
 
-  <!-- QUICK TIPS TICKER (Bonus Feature) -->
+  <!-- QUICK TIPS TICKER (Stabilized) -->
   <div class="ticker-wrap" style="margin-top: 60px;" aria-hidden="true">
     <span class="ticker-item">"Always carry your ID card."</span>
     <span class="ticker-item">"Apply for GPMS before Friday."</span>
@@ -255,7 +255,7 @@
         </li>
         <li>
           <h4>8.5 is the magic number.</h4>
-          <p>Below an 8.5 CGPA, you won't even see some top company shortlists during placement season. Above that, doors open automatically. Knowing the rules early means you can play to win.</p>
+          <p>Below an 8.5 CGPA, you won won't even see some top company shortlists during placement season. Above that, doors open automatically. Knowing the rules early means you can play to win.</p>
         </li>
       </ul>
 
@@ -433,51 +433,88 @@
         <p style="margin-top: 1rem;">If you want hackathons, projects, AI, technical events, workshops, and people who constantly build things outside class, start here. This is one of the fastest ways to stop feeling like a fresher and start becoming part of the technical community.</p>
       </div>
 
-      <!-- Club Finder Quiz (Bonus Feature) -->
+      <!-- PREMIUM CLUB FINDER -->
       <div class="quiz-container fade-up">
         <h3>The Club Finder</h3>
-        <p class="body-text" style="margin-bottom: 2rem;">Not sure where to start? Answer these three questions to find your community.</p>
+        <p>Not sure where to start? Answer these three questions to find your community.</p>
         
         <form id="club-quiz-form">
           <div class="quiz-question">
-            <h4>Q1: What sounds most interesting?</h4>
+            <h4>1. What sounds most interesting?</h4>
             <div class="quiz-options">
-              <label><input type="radio" name="q1" value="A" required> Building projects</label>
-              <label><input type="radio" name="q1" value="B"> Cybersecurity</label>
-              <label><input type="radio" name="q1" value="C"> Research</label>
-              <label><input type="radio" name="q1" value="D"> Social impact</label>
-              <label><input type="radio" name="q1" value="E"> Startups</label>
+              <input type="radio" class="hidden-radio" id="q1a" name="q1" value="A">
+              <label for="q1a" class="quiz-pill">Building projects</label>
+              
+              <input type="radio" class="hidden-radio" id="q1b" name="q1" value="B">
+              <label for="q1b" class="quiz-pill">Cybersecurity</label>
+              
+              <input type="radio" class="hidden-radio" id="q1c" name="q1" value="C">
+              <label for="q1c" class="quiz-pill">Research</label>
+              
+              <input type="radio" class="hidden-radio" id="q1d" name="q1" value="D">
+              <label for="q1d" class="quiz-pill">Social impact</label>
+              
+              <input type="radio" class="hidden-radio" id="q1e" name="q1" value="E">
+              <label for="q1e" class="quiz-pill">Startups</label>
             </div>
           </div>
           
           <div class="quiz-question">
-            <h4>Q2: How do you spend free time?</h4>
+            <h4>2. How do you spend free time?</h4>
             <div class="quiz-options">
-              <label><input type="radio" name="q2" value="A" required> Coding</label>
-              <label><input type="radio" name="q2" value="B"> Breaking things to understand them</label>
-              <label><input type="radio" name="q2" value="C"> Reading</label>
-              <label><input type="radio" name="q2" value="D"> Organizing events</label>
-              <label><input type="radio" name="q2" value="E"> Business content</label>
+              <input type="radio" class="hidden-radio" id="q2a" name="q2" value="A">
+              <label for="q2a" class="quiz-pill">Coding</label>
+              
+              <input type="radio" class="hidden-radio" id="q2b" name="q2" value="B">
+              <label for="q2b" class="quiz-pill">Breaking things to understand them</label>
+              
+              <input type="radio" class="hidden-radio" id="q2c" name="q2" value="C">
+              <label for="q2c" class="quiz-pill">Reading</label>
+              
+              <input type="radio" class="hidden-radio" id="q2d" name="q2" value="D">
+              <label for="q2d" class="quiz-pill">Organizing events</label>
+              
+              <input type="radio" class="hidden-radio" id="q2e" name="q2" value="E">
+              <label for="q2e" class="quiz-pill">Business content</label>
             </div>
           </div>
           
           <div class="quiz-question">
-            <h4>Q3: What do you want from college?</h4>
+            <h4>3. What do you want from college?</h4>
             <div class="quiz-options">
-              <label><input type="radio" name="q3" value="A" required> Hackathons</label>
-              <label><input type="radio" name="q3" value="B"> CTFs</label>
-              <label><input type="radio" name="q3" value="C"> Research exposure</label>
-              <label><input type="radio" name="q3" value="D"> Leadership</label>
-              <label><input type="radio" name="q3" value="E"> Entrepreneurship</label>
+              <input type="radio" class="hidden-radio" id="q3a" name="q3" value="A">
+              <label for="q3a" class="quiz-pill">Hackathons</label>
+              
+              <input type="radio" class="hidden-radio" id="q3b" name="q3" value="B">
+              <label for="q3b" class="quiz-pill">CTFs</label>
+              
+              <input type="radio" class="hidden-radio" id="q3c" name="q3" value="C">
+              <label for="q3c" class="quiz-pill">Research exposure</label>
+              
+              <input type="radio" class="hidden-radio" id="q3d" name="q3" value="D">
+              <label for="q3d" class="quiz-pill">Leadership</label>
+              
+              <input type="radio" class="hidden-radio" id="q3e" name="q3" value="E">
+              <label for="q3e" class="quiz-pill">Entrepreneurship</label>
             </div>
           </div>
           
-          <button type="submit" class="quiz-submit">Find My Club</button>
+          <button type="submit" class="quiz-submit">Find My Community</button>
         </form>
         
-        <div id="quiz-result-container" class="quiz-result">
-          <h4 id="quiz-result-text"></h4>
-          <p>Watch out for their inductions during your first month!</p>
+        <!-- EDITORIAL RESULT PANEL -->
+        <div id="quiz-result-container" class="quiz-result-panel">
+          <span class="result-label">You Should Start With</span>
+          <h4 id="res-name" class="result-title"></h4>
+          
+          <span class="result-label">Why You Match</span>
+          <p id="res-why" class="result-body"></p>
+          
+          <span class="result-label">First Action</span>
+          <p id="res-action" class="result-body"></p>
+          
+          <span class="result-label">Senior Advice</span>
+          <p id="res-advice" class="result-body"></p>
         </div>
       </div>
 
@@ -538,7 +575,6 @@
       <h2 class="ch-title fade-up">The Unwritten Rules.</h2>
       <p class="body-text fade-up">Nobody will sit you down and tell you these things. Read them carefully before Day 1.</p>
 
-      <!-- Amaravati Specificity (Bonus Feature) -->
       <div class="fade-up" style="margin-top: 4rem; max-width: 800px;">
         <h3 style="font-family: var(--serif); font-size: 2rem; color: var(--navy); margin-bottom: 1rem;">Only At Amaravati</h3>
         <p class="body-text" style="margin-bottom: 1rem;"><strong>GPMS Realities:</strong> The servers slow down on Friday afternoon because everyone is applying for weekend passes. Apply on Thursday if you want to leave campus smoothly.</p>
@@ -573,7 +609,7 @@
     </div>
   </section>
 
-  <!-- THE SCREENSHOT SHEET (Bonus Feature updated to 5 things & PDF) -->
+  <!-- THE SCREENSHOT SHEET -->
   <section class="section-white">
     <div class="container fade-up">
       <div class="print-box">
@@ -643,7 +679,7 @@
     </div>
   </section>
 
-  <!-- CHAPTER 8: FAQ (Bonus Feature Verified) -->
+  <!-- CHAPTER 8: FAQ -->
   <section class="section-alt" id="faq">
     <div class="container">
       <span class="ch-label fade-up">Chapter 08</span>
@@ -714,7 +750,7 @@
       </div>
 
       <div class="footer-bottom fade-up">
-        <div>Campus Compass (Bonus Features Unleashed)</div>
+        <div>Campus Compass (V5 Final Pass)</div>
         <div>Amrita Vishwa Vidyapeetham, Amaravati</div>
       </div>
     </div>
