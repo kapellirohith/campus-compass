@@ -87,35 +87,27 @@ a:hover{color: #7F1D1D;}
   .nav-links { display: none; }
 }
 
-/* ---------- TICKER (STABILIZED - BUG FIX) ---------- */
-.ticker-wrap {
-  width: 100%;
-  height: 45px;
-  position: relative;
-  overflow: hidden;
+/* ---------- EDITORIAL STRIP ---------- */
+.editorial-strip {
+  margin-top: 80px; /* Account for navbar */
   background-color: var(--off-white);
   border-bottom: 1px solid var(--border);
-  z-index: 10;
+  padding: 0.75rem 0;
+  text-align: center;
 }
-.ticker-item {
-  font-family: var(--mono);
+.strip-label {
+  font-family: var(--sans);
+  font-weight: 600;
   font-size: 0.85rem;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  line-height: 45px; /* Perfect vertical centering without transform */
-  margin: 0;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.8s var(--ease);
-  pointer-events: none;
+  margin-right: 0.5rem;
 }
-.ticker-item.active {
-  opacity: 1;
+.strip-text {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--navy);
 }
 
 /* ---------- Typography ---------- */
@@ -893,6 +885,10 @@ section {
   .story-hook { font-size: 1.8rem; }
   .story-body { font-size: 1.05rem; }
   .closing-chapter p { font-size: 1.5rem; }
+  
+  /* Static Strip Mobile Overrides */
+  .editorial-strip .container { display: flex; flex-direction: column; gap: 0.25rem; }
+  .strip-label { margin-right: 0; }
   
   /* Hardening Mobile Tables & Grids */
   .catalog-table th { display: none; }

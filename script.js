@@ -19,21 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // 2. Stabilized Ticker Logic
-  const tickers = document.querySelectorAll('.ticker-item');
-  if (tickers.length > 0) {
-    let currentTicker = 0;
-    // Initial fade in
-    setTimeout(() => {
-      tickers[currentTicker].classList.add('active');
-    }, 100);
-    
-    setInterval(() => {
-      tickers[currentTicker].classList.remove('active');
-      currentTicker = (currentTicker + 1) % tickers.length;
-      tickers[currentTicker].classList.add('active');
-    }, 4500);
-  }
+  // 2. Static Editorial Strip
+  // The strip is purely CSS/HTML based to guarantee zero clipping or animation bugs.
 
   // 3. Premium Quiz Logic with Editorial Results
   const quizForm = document.getElementById('club-quiz-form');
