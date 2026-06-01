@@ -302,9 +302,18 @@ section {
 }
 .timeline {
   margin-top: 2rem;
-  border-left: 2px solid var(--border);
-  padding-left: 1.8rem; /* Reduced to move text to the left */
-  padding-top: 14px; /* Border starts exactly at center of first dot */
+  padding-left: 1.8rem;
+  position: relative;
+}
+/* The Vertical Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px; /* Starts EXACTLY at the vertical center of the first dot */
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
 }
 .timeline-item {
   margin-bottom: 3rem;
@@ -313,12 +322,14 @@ section {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: calc(-1.8rem - 7px); /* Updated to match new padding-left */
+  /* -1.8rem goes back to the line. -5px offset centers the 12px dot perfectly on the 2px line */
+  left: calc(-1.8rem - 5px);
   top: 8px; /* Centers dot vertically on the 1.8rem h4 text cap height */
   width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--white);
   border: 2px solid var(--accent);
+  z-index: 2; /* Keep dot above line */
 }
 .timeline-item h4 {
   font-family: var(--serif);
