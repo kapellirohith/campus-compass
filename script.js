@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const result = resultsMap[winningLetter];
       const resultContainer = document.getElementById('quiz-result-container');
-      
+
       // Inject Editorial Content
       document.getElementById('res-name').innerText = result.name;
       document.getElementById('res-why').innerText = result.why;
