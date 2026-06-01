@@ -58,7 +58,7 @@ a:hover{color: #7F1D1D;}
   height: 70px;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: none; /* Removed so it blends perfectly with ticker */
   z-index: 1000;
 }
 .navbar .nav-main {
@@ -93,7 +93,7 @@ a:hover{color: #7F1D1D;}
   margin-top: 70px; /* Sits exactly below fixed navbar */
   height: 40px;
   background-color: var(--white);
-  border-top: none; /* No top line, visually fuses with navbar initially */
+  border-top: none;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
   position: relative;
@@ -110,7 +110,7 @@ a:hover{color: #7F1D1D;}
   font-family: var(--mono);
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-muted); /* Greyish color instead of red */
+  color: var(--accent); /* Reverted to red */
   text-transform: uppercase;
   letter-spacing: 0.15em;
   position: absolute;
