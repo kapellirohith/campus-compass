@@ -19,8 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // 2. Static Editorial Strip
-  // The strip is purely CSS/HTML based to guarantee zero clipping or animation bugs.
+  // 2. TOP TIP BAR V2 (FADE ONLY)
+  const tips = document.querySelectorAll('.tip-text');
+  if (tips.length > 0) {
+    let currentTip = 0;
+    setInterval(() => {
+      tips[currentTip].classList.remove('active');
+      currentTip = (currentTip + 1) % tips.length;
+      tips[currentTip].classList.add('active');
+    }, 4000);
+  }
 
   // 3. Premium Quiz Logic with Editorial Results
   const quizForm = document.getElementById('club-quiz-form');

@@ -87,27 +87,44 @@ a:hover{color: #7F1D1D;}
   .nav-links { display: none; }
 }
 
-/* ---------- EDITORIAL STRIP ---------- */
-.editorial-strip {
-  margin-top: 80px; /* Account for navbar */
+/* ---------- TOP TIP BAR V2 ---------- */
+.top-tip-bar {
+  margin-top: 85px; /* Safely clears the fixed navbar */
+  height: 45px;
   background-color: var(--off-white);
   border-bottom: 1px solid var(--border);
-  padding: 0.75rem 0;
-  text-align: center;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
 }
-.strip-label {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 0.85rem;
+.tip-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.tip-text {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-right: 0.5rem;
+  letter-spacing: 0.15em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 45px; /* Perfect vertical centering without transform */
+  text-align: center;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
 }
-.strip-text {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  color: var(--navy);
+.tip-text.active {
+  opacity: 1;
 }
 
 /* ---------- Typography ---------- */
@@ -886,9 +903,8 @@ section {
   .story-body { font-size: 1.05rem; }
   .closing-chapter p { font-size: 1.5rem; }
   
-  /* Static Strip Mobile Overrides */
-  .editorial-strip .container { display: flex; flex-direction: column; gap: 0.25rem; }
-  .strip-label { margin-right: 0; }
+  /* Top Tip Bar Mobile Overrides */
+  .tip-text { font-size: 0.7rem; letter-spacing: 0.05em; padding: 0 10px; }
   
   /* Hardening Mobile Tables & Grids */
   .catalog-table th { display: none; }
