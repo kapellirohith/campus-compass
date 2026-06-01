@@ -1,16 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Intersection Observer for Fade-Up Animations
+  // 1. Dark Mode Toggle
+  const toggle = document.getElementById('dark-mode-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark-theme');
+      const isDark = document.documentElement.classList.contains('dark-theme');
+      localStorage.setItem('campus-compass-theme', isDark ? 'dark' : 'light');
+    });
+  }
+
+  // 2. Intersection Observer for Fade-Up Animations (replays on every scroll)
   const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.15
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove('in-view');
       }
     });
   }, observerOptions);
