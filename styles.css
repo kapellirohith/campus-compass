@@ -166,11 +166,10 @@ a:hover{color: #7F1D1D;}
     display: flex; /* Show on mobile */
   }
   .nav-links {
-    /* Smooth modern slide and fade */
-    opacity: 0;
+    /* Circular reveal from the left */
+    clip-path: circle(0% at 0% 0%);
     pointer-events: none;
-    transform: translateY(-15px);
-    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    transition: clip-path 0.5s var(--ease);
     
     position: absolute;
     top: 70px;
@@ -191,9 +190,8 @@ a:hover{color: #7F1D1D;}
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   }
   .nav-links.active {
-    opacity: 1;
+    clip-path: circle(150% at 0% 0%);
     pointer-events: auto;
-    transform: translateY(0);
   }
   .nav-links a {
     text-align: center;
