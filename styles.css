@@ -314,13 +314,36 @@ section {
 .gallery-item h4 {
   font-family: var(--serif);
   font-size: 1.8rem;
-  color: var(--white);
+  color: var(--navy);
   margin-bottom: 0.5rem;
 }
 .gallery-item p {
   font-size: 0.95rem;
-  color: #A0ABC0;
+  color: var(--text-muted);
   line-height: 1.6;
+}
+.gallery-item.dark h4 { color: var(--white); }
+.gallery-item.dark p { color: #A0ABC0; }
+
+.spotlight-box {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 3rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+}
+.spotlight-box h3 {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.spotlight-box p {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
 /* ---------- CH 5 (Now 6): SURVIVAL ---------- */
@@ -347,7 +370,7 @@ section {
 .s-block.green li::before {
   content: '✓';
   position: absolute; left: 0;
-  color: #059669; /* Darker Green */
+  color: #059669;
   font-weight: bold;
 }
 .s-block.red li::before {
@@ -431,6 +454,23 @@ section {
   letter-spacing: 0.1em;
 }
 
+.screenshot-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.screenshot-list li {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+.screenshot-list strong {
+  font-family: var(--mono);
+  color: var(--navy);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
 .glossary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -476,7 +516,7 @@ section {
   top: -5px;
   font-family: var(--serif);
   font-size: 2.5rem;
-  color: var(--border); /* Made more subtle */
+  color: var(--border);
   line-height: 1;
 }
 .cgpa-strategy h4 {
@@ -624,6 +664,53 @@ section {
   padding-left: 1rem;
 }
 
+/* ========================================
+   FAQ (CH 8)
+   ======================================== */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 800px;
+}
+.faq-grid h4 {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.faq-grid p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* ========================================
+   CLOSING CHAPTER (CH 9)
+   ======================================== */
+.closing-chapter {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.closing-chapter p {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.5;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+.closing-chapter .signoff {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 3rem;
+  display: block;
+}
+
 @media (max-width: 768px) {
   .print-box { padding: 1.5rem; }
   .glossary-term { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -631,4 +718,5 @@ section {
   .cgpa-strategy li::before { font-size: 2rem; }
   .story-hook { font-size: 1.8rem; }
   .story-body { font-size: 1.05rem; }
+  .closing-chapter p { font-size: 1.5rem; }
 }
