@@ -253,7 +253,7 @@ section {
   overflow: hidden;
 }
 .hero-img-wrap img {
-  width: 100%; height: 100%; object-position: center 25%;
+  width: 100%; height: 100%; object-position: center 60%;
 }
 
 /* ---------- CH 1: PACKING ---------- */
@@ -321,6 +321,8 @@ section {
 .timeline-item h4 {
   font-family: var(--serif);
   font-size: 1.8rem;
+  line-height: 1; /* Reduce bounding box */
+  margin-top: -0.35rem; /* Pull text up exactly to align with the 12px dot at top: 0 */
   margin-bottom: 0.25rem;
   color: var(--navy);
 }
