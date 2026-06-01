@@ -87,7 +87,7 @@ a:hover{color: #7F1D1D;}
   .nav-links { display: none; }
 }
 
-/* ---------- TICKER (STABILIZED) ---------- */
+/* ---------- TICKER (STABILIZED - BUG FIX) ---------- */
 .ticker-wrap {
   width: 100%;
   height: 45px;
@@ -104,10 +104,11 @@ a:hover{color: #7F1D1D;}
   text-transform: uppercase;
   letter-spacing: 0.1em;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 45px; /* Perfect vertical centering without transform */
+  margin: 0;
   text-align: center;
   opacity: 0;
   transition: opacity 0.8s var(--ease);
@@ -370,14 +371,15 @@ section {
   line-height: 1.7;
 }
 
-/* QUIZ UTILITIES (EDITORIAL REDESIGN) */
+/* QUIZ UTILITIES (EDITORIAL REDESIGN - BUG FIX & POLISH) */
 .quiz-container {
   margin-top: 8rem;
   margin-bottom: 8rem;
-  padding: 5rem 0;
+  padding: 6rem 5rem;
   background: var(--white);
-  border-top: 2px solid var(--navy);
-  border-bottom: 2px solid var(--navy);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--navy);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 .quiz-container h3 {
   font-family: var(--serif);
@@ -466,7 +468,7 @@ section {
 .quiz-result-panel {
   margin-top: 5rem;
   background: var(--off-white);
-  border-top: 4px solid var(--accent);
+  border-left: 4px solid var(--accent);
   padding: 4rem;
   display: none;
 }
@@ -901,9 +903,9 @@ section {
   .gallery-grid { grid-template-columns: 1fr; gap: 2rem; }
   
   /* Quiz Mobile Overrides */
-  .quiz-container { padding: 3rem 0; border: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .quiz-container { padding: 3rem 1.5rem; border: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); box-shadow: none; }
   .quiz-pill { width: 100%; text-align: center; margin: 0 0 0.5rem 0; }
   .quiz-submit { width: 100%; }
-  .quiz-result-panel { padding: 2rem; }
+  .quiz-result-panel { padding: 2rem; border-left: none; border-top: 4px solid var(--accent); }
   .result-title { font-size: 2.2rem; }
 }
