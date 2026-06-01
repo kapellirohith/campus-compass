@@ -13,7 +13,7 @@
   --off-white: #F9FAFB;
   --text-dark: #1A1A2E;
   --text-muted: #5A6474;
-  --accent: #D97706;
+  --accent: #B91C1C; /* Amrita Red - Used sparingly (10%) */
   --border: #E5E7EB;
   
   --serif: 'Instrument Serif', Georgia, serif;
@@ -35,7 +35,7 @@ body{
 }
 img{max-width:100%; display:block; object-fit:cover;}
 a{color:var(--accent); text-decoration:none; transition: color 0.2s;}
-a:hover{color: #B45309;}
+a:hover{color: #7F1D1D;}
 
 /* ---------- Container ---------- */
 .container {
@@ -47,7 +47,7 @@ a:hover{color: #B45309;}
 /* ---------- Typography ---------- */
 .ch-label {
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -65,7 +65,7 @@ a:hover{color: #B45309;}
 }
 .body-text {
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   color: var(--text-muted);
   max-width: 700px;
@@ -101,7 +101,7 @@ a:hover{color: #B45309;}
   font-weight: 500;
   color: var(--text-muted);
 }
-.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover { color: var(--accent); }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -196,30 +196,53 @@ section {
 .timeline {
   margin-top: 2rem;
   border-left: 2px solid var(--border);
-  padding-left: 2rem;
+  padding-left: 2.5rem;
 }
 .timeline-item {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   position: relative;
 }
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -2.45rem;
+  left: -2.9rem;
   top: 0.3rem;
-  width: 12px; height: 12px;
+  width: 14px; height: 14px;
   border-radius: 50%;
   background: var(--white);
   border: 2px solid var(--accent);
 }
 .timeline-item h4 {
   font-family: var(--serif);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+  color: var(--navy);
 }
-.timeline-item p {
+.week-mood {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 1rem;
+}
+.timeline-item ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+.timeline-item li {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+.timeline-item li::before {
+  content: '-';
+  position: absolute; left: 0;
   color: var(--text-muted);
-  font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {
@@ -297,6 +320,7 @@ section {
 .gallery-item p {
   font-size: 0.95rem;
   color: #A0ABC0;
+  line-height: 1.6;
 }
 
 /* ---------- CH 5 (Now 6): SURVIVAL ---------- */
@@ -308,10 +332,10 @@ section {
 }
 .s-block h3 {
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid var(--border);
 }
 .s-block ul { list-style: none; }
 .s-block li {
@@ -323,13 +347,13 @@ section {
 .s-block.green li::before {
   content: '✓';
   position: absolute; left: 0;
-  color: #10B981;
+  color: #059669; /* Darker Green */
   font-weight: bold;
 }
 .s-block.red li::before {
   content: '✕';
   position: absolute; left: 0;
-  color: #EF4444;
+  color: var(--accent);
   font-weight: bold;
 }
 
@@ -432,7 +456,7 @@ section {
   font-size: 0.95rem;
   line-height: 1.6;
 }
-.term-warn { color: #EF4444 !important; }
+.term-warn { color: var(--accent) !important; font-weight: 600; }
 
 .cgpa-strategy {
   counter-reset: cgpa-counter;
@@ -452,12 +476,13 @@ section {
   top: -5px;
   font-family: var(--serif);
   font-size: 2.5rem;
-  color: var(--accent);
+  color: var(--border); /* Made more subtle */
   line-height: 1;
 }
 .cgpa-strategy h4 {
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
   color: var(--navy);
   margin-bottom: 0.5rem;
 }
@@ -468,20 +493,20 @@ section {
 
 .massive-warning {
   background: #FFF1F2;
-  border-left: 4px solid #EF4444;
-  padding: 2rem;
-  margin-top: 3rem;
+  border-left: 4px solid var(--accent);
+  padding: 2.5rem;
+  margin-top: 4rem;
 }
 .massive-warning h4 {
   font-family: var(--serif);
-  font-size: 1.8rem;
-  color: #991B1B;
+  font-size: 2rem;
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 .massive-warning p {
   color: #7F1D1D;
   font-family: var(--sans);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .qa-list {
@@ -566,12 +591,44 @@ section {
   margin-bottom: 1rem;
 }
 
+/* ========================================
+   DIGITAL ARSENAL (CH 7)
+   ======================================== */
+.arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5rem;
+}
+.arsenal-item h3 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.arsenal-item p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+.arsenal-tip {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+}
+
 @media (max-width: 768px) {
   .print-box { padding: 1.5rem; }
   .glossary-term { grid-template-columns: 1fr; gap: 0.5rem; }
   .cgpa-strategy li { padding-left: 3rem; }
   .cgpa-strategy li::before { font-size: 2rem; }
-  
   .story-hook { font-size: 1.8rem; }
   .story-body { font-size: 1.05rem; }
 }
