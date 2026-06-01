@@ -8,163 +8,197 @@ from fpdf import FPDF
 class PDF(FPDF):
     def add_hero(self):
         try:
-            # Add hero image taking up full width at top, mimicking a high-impact website header
-            self.image('images/hero.jpg', x=0, y=0, w=210, h=70)
+            # Add hero image taking up full width at top, slimmer height to save space
+            self.image('images/hero.jpg', x=0, y=0, w=210, h=45)
         except Exception:
             pass
             
-        self.set_y(85)
+        self.set_y(52)
         # Title Hierarchy mimicking the website
-        self.set_font('times', 'B', 34)
+        self.set_font('times', 'B', 28)
         self.set_text_color(15, 27, 45) # Navy
-        self.cell(0, 12, 'CAMPUS COMPASS', align='C', new_x='LMARGIN', new_y='NEXT')
+        self.cell(0, 10, 'CAMPUS COMPASS', align='C', new_x='LMARGIN', new_y='NEXT')
         
-        self.set_font('times', 'I', 14)
+        self.set_font('times', 'I', 12)
         self.set_text_color(90, 100, 116) # Muted Navy
-        self.cell(0, 8, 'The Unofficial Amrita Amaravati Handbook', align='C', new_x='LMARGIN', new_y='NEXT')
+        self.cell(0, 6, 'The Unofficial Amrita Amaravati Handbook', align='C', new_x='LMARGIN', new_y='NEXT')
         
-        self.ln(6)
-        self.set_font('helvetica', 'B', 11)
+        self.ln(2)
+        self.set_font('helvetica', 'B', 10)
         self.set_text_color(185, 28, 28) # Amrita Red
-        self.cell(0, 8, 'FRESHERS SURVIVAL SHEET', align='C', new_x='LMARGIN', new_y='NEXT')
+        self.cell(0, 6, 'FRESHERS SURVIVAL SHEET', align='C', new_x='LMARGIN', new_y='NEXT')
         
         # Subtle divider
-        self.ln(10)
+        self.ln(4)
         self.set_draw_color(229, 231, 235)
-        self.line(20, self.get_y(), 190, self.get_y())
-        self.ln(10)
-
-    def section_title(self, title):
-        self.ln(8)
-        self.set_font('times', 'B', 16) # Using Times to simulate Instrument Serif
-        self.set_text_color(15, 27, 45) # Navy
-        self.cell(0, 8, title, align='L', new_x='LMARGIN', new_y='NEXT')
-        self.set_text_color(0, 0, 0)
-
-    def add_bullet(self, text):
-        self.set_font('helvetica', '', 11)
-        self.set_text_color(15, 27, 45)
-        self.cell(0, 7, f"-  {text}", new_x='LMARGIN', new_y='NEXT')
-        
-    def add_check(self, text):
-        self.set_font('helvetica', '', 11)
-        self.set_text_color(90, 100, 116)
-        self.cell(0, 7, f"[   ]  {text}", new_x='LMARGIN', new_y='NEXT')
-
-    def add_text(self, text):
-        self.set_font('helvetica', '', 11)
-        self.set_text_color(15, 27, 45)
-        self.multi_cell(0, 7, text, new_x='LMARGIN', new_y='NEXT')
+        self.line(15, self.get_y(), 195, self.get_y())
+        self.ln(4)
 
     def draw_divider(self):
-        self.ln(6)
+        self.ln(4)
         self.set_draw_color(229, 231, 235)
-        self.line(20, self.get_y(), 190, self.get_y())
-        self.ln(6)
+        self.line(15, self.get_y(), 195, self.get_y())
+        self.ln(4)
 
 pdf = PDF()
-# Generous editorial margins
-pdf.set_margins(20, 20, 20)
+# Tight margins to fit 1 page comfortably
+pdf.set_margins(15, 15, 15)
 pdf.add_page()
 pdf.add_hero()
 
-# SECTION 1
-pdf.section_title('Before You Arrive')
-pdf.add_check('Admission Letter')
-pdf.add_check('Aadhaar Copies')
-pdf.add_check('Passport Photos')
-pdf.add_check('Laptop + Charger')
-pdf.add_check('Medical Documents')
+# ==========================================
+# 2-COLUMN LAYOUT: BEFORE YOU ARRIVE & DIGITAL LIFELINES
+# ==========================================
+y_before_cols = pdf.get_y()
 
-# SECTION 2
-pdf.section_title('Rules Nobody Explains')
-pdf.set_font('helvetica', 'B', 11)
-pdf.set_text_color(185, 28, 28) # Red Warning
-pdf.cell(0, 7, 'Attendance below 75% = FA', new_x='LMARGIN', new_y='NEXT')
-pdf.set_font('helvetica', '', 11)
-pdf.set_text_color(15, 27, 45)
-pdf.multi_cell(0, 7, 'Do not gamble with attendance.', new_x='LMARGIN', new_y='NEXT')
-
-# SECTION 3
-pdf.section_title('Digital Lifelines')
-pdf.set_font('helvetica', 'B', 11)
-pdf.set_text_color(15, 27, 45)
-pdf.cell(20, 7, 'AUMS:', new_x='RIGHT')
-pdf.set_font('helvetica', '', 11)
-pdf.cell(0, 7, 'Academics, Attendance, Grades.', new_x='LMARGIN', new_y='NEXT')
-pdf.set_font('helvetica', 'B', 11)
-pdf.cell(20, 7, 'GPMS:', new_x='RIGHT')
-pdf.set_font('helvetica', '', 11)
-pdf.cell(0, 7, 'Hostel and Campus Services.', new_x='LMARGIN', new_y='NEXT')
-
-# SECTION 4
-pdf.section_title('First Month Checklist')
-pdf.add_check('Join one club.')
-pdf.add_check('Attend induction events.')
-pdf.add_check('Learn AUMS.')
-pdf.add_check('Locate classrooms.')
-pdf.add_check('Make friends outside your branch.')
-
-pdf.add_page()
-
-# SECTION 5
-pdf.section_title('Clubs Worth Exploring')
-pdf.add_bullet('Chakravyuha')
-pdf.add_bullet('ACM')
-pdf.add_bullet('IEEE')
-pdf.add_bullet('Team bi0s')
-pdf.add_bullet('AYUDH')
-pdf.add_bullet('E-Cell')
-
-# SECTION 6 - FIVE THINGS TO REMEMBER (Visually Dominant)
-pdf.ln(15)
-pdf.set_font('times', 'B', 22)
-pdf.set_text_color(15, 27, 45)
-pdf.cell(0, 10, 'Five Things To Remember', align='C', new_x='LMARGIN', new_y='NEXT')
-pdf.draw_divider()
-
-items = [
-    'Attendance below 75% is dangerous.',
-    'Join clubs early.',
-    'Build projects from Semester 1.',
-    'Protect CGPA early.',
-    'Make friends outside your branch.'
-]
-for i, item in enumerate(items, 1):
-    # Large subtle numbering
-    pdf.set_font('times', 'B', 18)
-    pdf.set_text_color(203, 213, 225) # Slate 300
-    pdf.cell(12, 8, f"0{i}", new_x='RIGHT')
-    # Bold Navy Text
-    pdf.set_font('helvetica', 'B', 11)
+# LEFT COL: BEFORE YOU ARRIVE
+pdf.set_x(15)
+pdf.set_font('times', 'B', 14)
+pdf.cell(90, 7, 'BEFORE YOU ARRIVE', new_x='LMARGIN', new_y='NEXT')
+items = ['Admission Letter', 'Aadhaar Copies', 'Passport Photos', 'Laptop + Charger', 'Medical Documents']
+for i in items:
+    pdf.set_x(15)
+    pdf.set_font('helvetica', 'B', 10)
+    pdf.set_text_color(185, 28, 28)
+    pdf.cell(5, 5, "[x]", new_x='RIGHT') 
+    pdf.set_font('helvetica', '', 10)
     pdf.set_text_color(15, 27, 45)
-    pdf.cell(0, 8, item, new_x='LMARGIN', new_y='NEXT')
-    pdf.ln(2)
+    pdf.cell(85, 5, i, new_x='LMARGIN', new_y='NEXT')
+
+# RIGHT COL: DIGITAL LIFELINES
+pdf.set_y(y_before_cols)
+pdf.set_x(110)
+pdf.set_font('times', 'B', 14)
+pdf.cell(90, 7, 'DIGITAL LIFELINES', new_x='LMARGIN', new_y='NEXT')
+
+lifelines = [
+    ('AUMS', 'Attendance, grades, academics.'),
+    ('GPMS', 'Hostel and campus services.')
+]
+for title, desc in lifelines:
+    pdf.set_x(110)
+    pdf.set_font('helvetica', 'B', 10)
+    pdf.cell(15, 5, title, new_x='RIGHT')
+    pdf.set_font('helvetica', '', 9.5)
+    pdf.cell(75, 5, desc, new_x='LMARGIN', new_y='NEXT')
+    pdf.ln(1)
+
+pdf.ln(3)
+pdf.draw_divider()
+
+# ==========================================
+# SECTION 2: FIVE THINGS (Visually Dominant)
+# ==========================================
+pdf.ln(2)
+pdf.set_font('times', 'B', 18)
+pdf.set_text_color(15, 27, 45)
+pdf.cell(0, 8, 'The Five Things Every Senior Repeats', align='C', new_x='LMARGIN', new_y='NEXT')
+pdf.ln(2)
+
+five_things = [
+    'Attendance below 75% is dangerous.',
+    'Join clubs during your first month.',
+    'Start projects in Semester 1.',
+    'Protect CGPA early.',
+    'Build friendships outside your branch.'
+]
+for i, item in enumerate(five_things, 1):
+    pdf.set_font('times', 'B', 14)
+    pdf.set_text_color(185, 28, 28) # Red numbers for punch
+    pdf.cell(8, 6, f"{i}.", new_x='RIGHT')
+    pdf.set_font('helvetica', 'B', 10.5)
+    pdf.set_text_color(15, 27, 45)
+    pdf.cell(0, 6, item, new_x='LMARGIN', new_y='NEXT')
 
 pdf.draw_divider()
 
-# SECTION 7
-pdf.section_title('Senior Advice')
-pdf.add_text('Do not wait until second year to start building.')
-pdf.add_text('The students who start in Semester 1 gain an enormous advantage.')
+# ==========================================
+# 2-COLUMN LAYOUT: FIRST 30 DAYS & CLUBS
+# ==========================================
+y_before_cols2 = pdf.get_y()
 
-# CLOSING SECTION (Emergency + Quote Unified)
-# Pushing this block down to act as a definitive footer
-pdf.ln(20)
+# LEFT COL: 30 DAYS
+pdf.set_x(15)
+pdf.set_font('times', 'B', 14)
+pdf.cell(90, 7, 'FIRST 30 DAYS', new_x='LMARGIN', new_y='NEXT')
 
-# Red Emergency
-pdf.set_font('helvetica', 'B', 10)
-pdf.set_text_color(185, 28, 28)
-pdf.cell(0, 7, 'EMERGENCY REMINDER:', align='C', new_x='LMARGIN', new_y='NEXT')
-# Subtle Navy Text
-pdf.set_font('helvetica', '', 11)
-pdf.set_text_color(15, 27, 45)
-pdf.cell(0, 7, 'Screenshot this sheet. Keep a copy on your phone.', align='C', new_x='LMARGIN', new_y='NEXT')
+days = [
+    ('Week 1', 'Everything feels unfamiliar.'),
+    ('Week 2', 'You start recognizing faces.'),
+    ('Week 3', 'Classes become routine.'),
+    ('Week 4', 'Campus starts feeling like home.')
+]
+for w, d in days:
+    pdf.set_x(15)
+    pdf.set_font('helvetica', 'B', 9.5)
+    pdf.cell(90, 4.5, w, new_x='LMARGIN', new_y='NEXT')
+    pdf.set_x(15)
+    pdf.set_font('helvetica', 'I', 9.5)
+    pdf.set_text_color(90, 100, 116)
+    pdf.cell(90, 4.5, d, new_x='LMARGIN', new_y='NEXT')
+    pdf.set_text_color(15, 27, 45)
+    pdf.ln(1)
 
-pdf.ln(18)
-# Grand Serif Closing Quote
-pdf.set_font('times', 'I', 20)
+# RIGHT COL: CLUBS
+pdf.set_y(y_before_cols2)
+pdf.set_x(110)
+pdf.set_font('times', 'B', 14)
+pdf.cell(90, 7, 'CLUBS WORTH YOUR TIME', new_x='LMARGIN', new_y='NEXT')
+
+clubs = [
+    ('Chakravyuha', 'Fastest route into projects and hackathons.'),
+    ('ACM', 'Build stronger CS fundamentals.'),
+    ('IEEE', 'Engineering and research exposure.'),
+    ('Team bi0s', 'Cybersecurity and CTFs.'),
+    ('AYUDH', 'Leadership and service.'),
+    ('E-Cell', 'Entrepreneurship and startups.')
+]
+for c, d in clubs:
+    pdf.set_x(110)
+    pdf.set_font('helvetica', 'B', 9.5)
+    pdf.cell(90, 4.5, c, new_x='LMARGIN', new_y='NEXT')
+    pdf.set_x(110)
+    pdf.set_font('helvetica', '', 9.5)
+    pdf.set_text_color(90, 100, 116)
+    pdf.cell(90, 4.5, d, new_x='LMARGIN', new_y='NEXT')
+    pdf.set_text_color(15, 27, 45)
+
+pdf.ln(1)
+pdf.draw_divider()
+
+# ==========================================
+# SECTION 6: THE HARD WAY
+# ==========================================
+pdf.ln(1)
+pdf.set_font('times', 'B', 14)
+pdf.cell(0, 7, 'THINGS WE LEARNED THE HARD WAY', new_x='LMARGIN', new_y='NEXT')
+
+lessons = [
+    ('"I\'ll watch the lecture recording later."', 'You probably won\'t. Attend class.'),
+    ('"I\'ll join clubs next semester."', 'Most people never do. Join now.'),
+    ('"I\'ll start projects after first year."', 'The students who grow fastest start immediately.')
+]
+for q, a in lessons:
+    pdf.ln(1.5)
+    pdf.set_font('helvetica', 'I', 10.5)
+    pdf.set_text_color(185, 28, 28)
+    pdf.cell(0, 5, q, new_x='LMARGIN', new_y='NEXT')
+    pdf.set_font('helvetica', 'B', 10)
+    pdf.set_text_color(15, 27, 45)
+    pdf.cell(0, 5, a, new_x='LMARGIN', new_y='NEXT')
+
+# ==========================================
+# CLOSING SECTION: ONE LAST THING
+# ==========================================
+# Force this to a visually distinct bottom area
+pdf.ln(6)
+pdf.set_font('times', 'B', 18)
+pdf.cell(0, 8, 'ONE LAST THING', align='C', new_x='LMARGIN', new_y='NEXT')
+
+pdf.ln(2)
+pdf.set_font('times', 'I', 13.5)
 pdf.set_text_color(90, 100, 116)
-pdf.multi_cell(0, 10, '"One day you\'ll know every shortcut on campus.\nUntil then, keep this sheet."', align='C', new_x='LMARGIN', new_y='NEXT')
+ending_text = "One day you'll know every shortcut on campus.\nYou'll know where your classroom is. You'll know where your friends sit during lunch.\nYou'll stop feeling like a visitor.\n\nYou belong here.\nSee you on campus."
+pdf.multi_cell(0, 6, ending_text, align='C', new_x='LMARGIN', new_y='NEXT')
 
 pdf.output('survival-sheet.pdf')
